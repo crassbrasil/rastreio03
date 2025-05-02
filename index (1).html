@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verificar Pedido</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f0f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      text-align: center;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 450px;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .search-box {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 15px;
+      font-size: 16px;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      transition: border-color 0.3s ease;
+    }
+
+    .search-box input:focus {
+      border-color: #4CAF50;
+      outline: none;
+    }
+
+    .search-button {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .search-button button {
+      width: 100%;
+      max-width: 200px;
+      padding: 14px;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .search-button button:hover {
+      background-color: #45a049;
+    }
+
+    .error {
+      color: #ff4d4d;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 480px) {
+      .search-button button {
+        max-width: 100%;
+        font-size: 15px;
+        padding: 12px;
+      }
+
+      .container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Verificar Pedido</h2>
+    <div class="search-box">
+      <input type="text" id="cpfInput" placeholder="Número do seu pedido" maxlength="11" required>
+    </div>
+    <div class="search-button">
+      <button type="submit" id="submitBtn">Localizar Pedido</button>
+    </div>
+    <p id="errorMessage" class="error" style="display: none;">Pedido não encontrado. Tente novamente.</p>
+  </div>
+
+  <script>
+  const validCpfs = [
+    '#1006', '#1007', '#1008', '#1009', '#1010', '#1011', '#1012', '#1013', '#1014', '#1015',
+    '#1016', '#1017', '#1018', '#1019', '#1020', '#1021', '#1022', '#1023', '#1024', '#1025',
+    '#1026', '#1027', '#1028', '#1029', '#1030', '#1031', '#1032', '#1033', '#1034', '#1035',
+    '#1036', '#1037', '#1038', '#1039', '#1040', '#1041', '#1042', '#1043', '#1044', '#1045',
+    '#1046', '#1047', '#1048', '#1049', '#1050', '#1051', '#1052', '#1053', '#1054', '#1055',
+    '#1056', '#1057', '#1058', '#1059', '#1060', '#1061', '#1062', '#1063', '#1064', '#1065',
+    '#1066', '#1067', '#1068', '#1069', '#1070', '#1071', '#1072', '#1073', '#1074', '#1075',
+    '#1076', '#1077', '#1078', '#1079', '#1080', '#1081', '#1082', '#1083', '#1084', '#1085',
+    '#1086', '#1087', '#1088', '#1089', '#1090', '#1091', '#1092', '#1093', '#1094', '#1095',
+    '#1096', '#1097', '#1098', '#1099'
+  ];
+
+  document.getElementById('submitBtn').addEventListener('click', function(event) {
+    event.preventDefault();
+    const cpf = document.getElementById('cpfInput').value.trim();
+
+    if (validCpfs.includes(cpf)) {
+      window.location.href = `https://crassbrasil.github.io/apoio/`;
+    } else {
+      document.getElementById('errorMessage').style.display = 'block';
+    }
+  });
+</script>
+
+
+</body>
+</html>
